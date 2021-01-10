@@ -1,0 +1,10 @@
+# Intellij
+**/.idea/
+.idea/
+*.iml
+*.iws
+
+# Maven
+**/target/
+**/src/main/sources/
+**/rebel.xml
