@@ -14,7 +14,7 @@ public class KeyPairGeneratorDemo {
 
 	public static void main(String[] args) throws NoSuchAlgorithmException {
 		final KeyPairGenerator kpg = KeyPairGenerator.getInstance("RSA");
-		kpg.initialize(2048);
+		kpg.initialize(2048); //Recommended Key Size
 		final KeyPair kp = kpg.generateKeyPair();
 
 		final PublicKey publicKey = kp.getPublic();
