@@ -1,4 +1,4 @@
-package crytography.section001SymmetricCipherExample;
+package crytography.section001;
 
 import crytography.Util;
 import lombok.extern.slf4j.Slf4j;
@@ -15,7 +15,7 @@ public class SymmetricalCipherDemo {
 
 	/**
 	 * https://docs.oracle.com/javase/8/docs/technotes/guides/security/StandardNames.html
- 	 */
+	 */
 	private static final String ALGORITHM = "AES";
 	private static final String CIPHER = "AES/CBC/PKCS5PADDING";
 
@@ -55,15 +55,15 @@ public class SymmetricalCipherDemo {
 			log.info("Original text=" + payload);
 
 			String encrypted = encrypt(key, initVector, payload);
-			log.info("Encrypted text={}" , encrypted);
+			log.info("Encrypted text={}", encrypted);
 
 			String decrypted = decrypt(key, initVector, encrypted);
-			log.info("Decrypted text={}" , decrypted);
+			log.info("Decrypted text={}", decrypted);
 
 			String result = decrypted.equals(payload) ? "Success!" : "Failed.";
 			log.info(result);
 		} catch (Exception e){
-			e.printStackTrace();
+			log.error(e.getMessage(), e);
 		}
 	}
 }
