@@ -45,7 +45,7 @@ public class KeyStoreDemo {
 
 		// Crete the keystore
 		final KeyStore keyStore = KeyStore.getInstance("JKS");
-		keyStore.load(null, "SomePass".toCharArray());
+		keyStore.load(null, "1234".toCharArray());
 
 		// Generate a key pair
 		final KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
@@ -57,10 +57,12 @@ public class KeyStoreDemo {
 		Entry entry = new PrivateKeyEntry(keyPair.getPrivate(), new Certificate[]{wrappedCertificate});
 
 		//Store the password protected private entry on the keystore
-		keyStore.setEntry("tuzel", entry, new KeyStore.PasswordProtection("SomePass".toCharArray()));
-		keyStore.store(new FileOutputStream(keystoreFile), "SomePass".toCharArray());
+		keyStore.setEntry("tuzel", entry, new KeyStore.PasswordProtection("1234".toCharArray()));
+		keyStore.store(new FileOutputStream(keystoreFile), "1234".toCharArray());
 
 		log.info("Password protected private entry is successfully stored on the keystore.");
+		log.info("After stroring the keystore you can list it with keytool");
+		log.info("keytool -list -keystore keystore.jks");
 	}
 
 	/**
